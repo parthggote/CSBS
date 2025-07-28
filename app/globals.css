@@ -124,9 +124,8 @@
   animation: shimmer 2.5s linear infinite;
 }
 
-/* Hide the Spline watermark badge */
 a[title*="Spline"], a[href*="spline.design"], a[aria-label*="Spline"], div[title*="Spline"] {
   display: none !important;
   opacity: 0 !important;
   pointer-events: none !important;
-}
+} 
