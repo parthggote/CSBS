@@ -27,7 +27,12 @@ import { useToast } from "@/components/ui/use-toast"
 export default function ResourcesPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [isLoggedIn, setIsLoggedIn] = useState(false) // This would come from auth context
-  const [resources, setResources] = useState({ pyqs: [], certifications: [], hackathons: [], interviews: [] })
+  const [resources, setResources] = useState<{
+    pyqs: any[];
+    certifications: any[];
+    hackathons: any[];
+    interviews: any[];
+  }>({ pyqs: [], certifications: [], hackathons: [], interviews: [] })
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
 
