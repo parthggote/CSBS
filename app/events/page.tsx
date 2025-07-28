@@ -16,13 +16,8 @@ import {
 } from "@/components/ui/dialog"
 import { Calendar, Clock, MapPin, Users, Award } from "lucide-react"
 import Image from "next/image"
-<<<<<<< HEAD
-import "keen-slider/keen-slider.min.css";
-import { useKeenSlider } from "keen-slider/react";
-
-export default function EventsPage() {
-  // Add state for user role at the top of the component
-=======
+import "keen-slider/keen-slider.min.css"
+import { useKeenSlider } from "keen-slider/react"
 
 export default function EventsPage() {
   // Add state for user role at the top of the component
@@ -30,7 +25,6 @@ export default function EventsPage() {
     name: "Admin User",
     role: "admin" as const, // Change this to test admin features
   })
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
   const [selectedEvent, setSelectedEvent] = useState<any>(null)
   const [upcomingEvents, setUpcomingEvents] = useState<any[]>([])
   const [pastEvents, setPastEvents] = useState<any[]>([])
@@ -63,11 +57,7 @@ export default function EventsPage() {
   }, [])
 
   const sponsors = [
-<<<<<<< HEAD
-    { name: "Logo1", logo: "/placeholder.svg?height=600&width=120" },
-=======
     { name: "TCS", logo: "/placeholder.svg?height=60&width=120" },
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
     { name: "Microsoft", logo: "/placeholder.svg?height=60&width=120" },
     { name: "Google", logo: "/placeholder.svg?height=60&width=120" },
     { name: "Amazon", logo: "/placeholder.svg?height=60&width=120" },
@@ -78,7 +68,6 @@ export default function EventsPage() {
     // Handle registration logic
   }
 
-<<<<<<< HEAD
   const [sliderRef] = useKeenSlider({
     loop: true,
     slides: {
@@ -96,23 +85,17 @@ export default function EventsPage() {
     renderMode: "performance",
     drag: true,
     created(slider) {
-      setInterval(() => slider.next(), 2500);
+      setInterval(() => slider.next(), 2500)
     },
-  });
+  })
 
-=======
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
   return (
     <div className="relative min-h-screen bg-background overflow-hidden">
       {/* Decorative gradient blobs */}
       <div className="absolute -top-16 -left-16 w-[22rem] h-[18rem] bg-gradient-to-br from-blue-400 via-purple-400 to-transparent opacity-30 rounded-full blur-[80px] z-0" />
       <div className="absolute bottom-0 right-0 w-[16rem] h-[16rem] bg-gradient-to-tr from-purple-400 via-pink-400 to-transparent opacity-20 rounded-full blur-[50px] z-0" />
       {/* Update the Navigation component call to include currentUser */}
-<<<<<<< HEAD
-      <Navigation />
-=======
       <Navigation currentUser={currentUser} />
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
 
       <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="text-center mb-12">
@@ -137,96 +120,96 @@ export default function EventsPage() {
               ) : (
                 upcomingEvents.map((event) => (
                   <Card key={event._id} className="hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <Image
-                      src={event.image || "/placeholder.svg"}
-                      alt={event.title}
-                      width={400}
-                      height={200}
-                      className="w-full h-48 object-cover rounded-t-lg"
-                    />
-                    <Badge className="absolute top-2 right-2 bg-blue-600">{event.category}</Badge>
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{event.title}</CardTitle>
-                    <CardDescription>{event.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {new Date(event.date).toLocaleDateString()}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Clock className="w-4 h-4 mr-2" />
-                        {event.time}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        {event.location}
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Users className="w-4 h-4 mr-2" />
-                        {event.registered}/{event.capacity} registered
-                      </div>
+                    <div className="relative">
+                      <Image
+                        src={event.image || "/placeholder.svg"}
+                        alt={event.title}
+                        width={400}
+                        height={200}
+                        className="w-full h-48 object-cover rounded-t-lg"
+                      />
+                      <Badge className="absolute top-2 right-2 bg-blue-600">{event.category}</Badge>
                     </div>
-
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button variant="outline" className="w-full mb-2 bg-transparent">
-                          View Details
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-2xl">
-                        <DialogHeader>
-                          <DialogTitle>{event.title}</DialogTitle>
-                          <DialogDescription>
-                            {event.speaker} • {new Date(event.date).toLocaleDateString()}
-                          </DialogDescription>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <Image
-                            src={event.image || "/placeholder.svg"}
-                            alt={event.title}
-                            width={600}
-                            height={300}
-                            className="w-full h-64 object-cover rounded-lg"
-                          />
-                          <p className="text-gray-700">{event.fullDescription}</p>
-                          <div className="grid grid-cols-2 gap-4 text-sm">
-                            <div>
-                              <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
-                            </div>
-                            <div>
-                              <strong>Time:</strong> {event.time}
-                            </div>
-                            <div>
-                              <strong>Location:</strong> {event.location}
-                            </div>
-                            <div>
-                              <strong>Capacity:</strong> {event.capacity} seats
-                            </div>
-                          </div>
-                          <Button
-                              onClick={() => (window.location.href = `/events/${event._id}/register`)}
-                            className="w-full"
-                            disabled={event.registered >= event.capacity}
-                          >
-                            {event.registered >= event.capacity ? "Event Full" : "Register Now"}
-                          </Button>
+                    <CardHeader>
+                      <CardTitle className="text-lg">{event.title}</CardTitle>
+                      <CardDescription>{event.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Calendar className="w-4 h-4 mr-2" />
+                          {new Date(event.date).toLocaleDateString()}
                         </div>
-                      </DialogContent>
-                    </Dialog>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Clock className="w-4 h-4 mr-2" />
+                          {event.time}
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <MapPin className="w-4 h-4 mr-2" />
+                          {event.location}
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Users className="w-4 h-4 mr-2" />
+                          {event.registered}/{event.capacity} registered
+                        </div>
+                      </div>
 
-                    <Button
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button variant="outline" className="w-full mb-2 bg-transparent">
+                            View Details
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl">
+                          <DialogHeader>
+                            <DialogTitle>{event.title}</DialogTitle>
+                            <DialogDescription>
+                              {event.speaker} • {new Date(event.date).toLocaleDateString()}
+                            </DialogDescription>
+                          </DialogHeader>
+                          <div className="space-y-4">
+                            <Image
+                              src={event.image || "/placeholder.svg"}
+                              alt={event.title}
+                              width={600}
+                              height={300}
+                              className="w-full h-64 object-cover rounded-lg"
+                            />
+                            <p className="text-gray-700">{event.fullDescription}</p>
+                            <div className="grid grid-cols-2 gap-4 text-sm">
+                              <div>
+                                <strong>Date:</strong> {new Date(event.date).toLocaleDateString()}
+                              </div>
+                              <div>
+                                <strong>Time:</strong> {event.time}
+                              </div>
+                              <div>
+                                <strong>Location:</strong> {event.location}
+                              </div>
+                              <div>
+                                <strong>Capacity:</strong> {event.capacity} seats
+                              </div>
+                            </div>
+                            <Button
+                              onClick={() => (window.location.href = `/events/${event._id}/register`)}
+                              className="w-full"
+                              disabled={event.registered >= event.capacity}
+                            >
+                              {event.registered >= event.capacity ? "Event Full" : "Register Now"}
+                            </Button>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+
+                      <Button
                         onClick={() => (window.location.href = `/events/${event._id}/register`)}
-                      className="w-full"
-                      disabled={event.registered >= event.capacity}
-                    >
-                      {event.registered >= event.capacity ? "Event Full" : "Register"}
-                    </Button>
-                  </CardContent>
-                </Card>
+                        className="w-full"
+                        disabled={event.registered >= event.capacity}
+                      >
+                        {event.registered >= event.capacity ? "Event Full" : "Register"}
+                      </Button>
+                    </CardContent>
+                  </Card>
                 ))
               )}
             </div>
@@ -241,37 +224,37 @@ export default function EventsPage() {
               ) : (
                 pastEvents.map((event) => (
                   <Card key={event._id} className="hover:shadow-lg transition-shadow">
-                  <Image
-                    src={event.image || "/placeholder.svg"}
-                    alt={event.title}
-                    width={400}
-                    height={200}
-                    className="w-full h-48 object-cover rounded-t-lg"
-                  />
-                  <CardHeader>
-                    <CardTitle className="text-lg">{event.title}</CardTitle>
-                    <CardDescription>{event.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {new Date(event.date).toLocaleDateString()}
+                    <Image
+                      src={event.image || "/placeholder.svg"}
+                      alt={event.title}
+                      width={400}
+                      height={200}
+                      className="w-full h-48 object-cover rounded-t-lg"
+                    />
+                    <CardHeader>
+                      <CardTitle className="text-lg">{event.title}</CardTitle>
+                      <CardDescription>{event.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Calendar className="w-4 h-4 mr-2" />
+                          {new Date(event.date).toLocaleDateString()}
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Users className="w-4 h-4 mr-2" />
+                          {event.attendees} attendees
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <Award className="w-4 h-4 mr-2" />
+                          {event.rating}/5.0 rating
+                        </div>
                       </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Users className="w-4 h-4 mr-2" />
-                        {event.attendees} attendees
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <Award className="w-4 h-4 mr-2" />
-                        {event.rating}/5.0 rating
-                      </div>
-                    </div>
-                    <blockquote className="text-sm italic text-gray-600 border-l-4 border-blue-500 pl-4">
-                      "{event.testimonial}"
-                    </blockquote>
-                  </CardContent>
-                </Card>
+                      <blockquote className="text-sm italic text-gray-600 border-l-4 border-blue-500 pl-4">
+                        "{event.testimonial}"
+                      </blockquote>
+                    </CardContent>
+                  </Card>
                 ))
               )}
             </div>
@@ -279,7 +262,6 @@ export default function EventsPage() {
         </Tabs>
 
         {/* Sponsors Section */}
-<<<<<<< HEAD
         <section className="py-12 bg-white dark:bg-background mt-64">
           <h2 className="text-2xl font-bold text-center mb-8">Previous Event Sponsors</h2>
           <div className="keen-slider" ref={sliderRef}>
@@ -305,19 +287,6 @@ export default function EventsPage() {
                   height={200}
                   className="object-contain h-[200px] w-auto"
                   priority={idx < 3}
-=======
-        <section className="bg-white rounded-lg p-8 shadow-sm">
-          <h2 className="text-2xl font-bold text-center mb-8">Event Sponsors</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            {sponsors.map((sponsor, index) => (
-              <div key={index} className="text-center group">
-                <Image
-                  src={sponsor.logo || "/placeholder.svg"}
-                  alt={sponsor.name}
-                  width={120}
-                  height={60}
-                  className="mx-auto grayscale hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
                 />
               </div>
             ))}
