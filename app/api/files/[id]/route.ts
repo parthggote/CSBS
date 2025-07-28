@@ -2,11 +2,14 @@ import { NextRequest } from 'next/server';
 import { getDb } from '../../../../lib/mongodb';
 import { ObjectId, GridFSBucket } from 'mongodb';
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
-  const { params } = context;
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
   const db = await getDb();
   const bucket = new GridFSBucket(db);
-  const fileId = params.id;
+  const fileId = id;
   const searchParams = req.nextUrl.searchParams;
   const type = searchParams.get('type');
   const resourceId = searchParams.get('resourceId');
