@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getDb } from '../../../lib/mongodb';
 
-export const maxRequestBodySize = '20mb';
-
 export async function POST(req: NextRequest) {
   try {
     const { fileId } = await req.json();
