@@ -8,7 +8,7 @@ import { Menu, User, Settings, Moon, Sun, ChevronRight } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Switch } from "@/components/ui/switch"
 import { useTheme } from "next-themes"
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
 
 interface NavigationProps {
   currentUser?: {
@@ -17,37 +17,22 @@ interface NavigationProps {
   }
 }
 
-<<<<<<< HEAD
-export function Navigation() {
-=======
 export function Navigation({ currentUser }: NavigationProps) {
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
   const [isOpen, setIsOpen] = useState(false)
-  const { theme, setTheme } = useTheme();
-  const router = useRouter();
+  const { theme, setTheme } = useTheme()
+  const router = useRouter()
 
   const handleLogout = async () => {
-    await fetch('/api/auth', { method: 'DELETE' });
-    router.push('/');
-  };
+    await fetch('/api/auth', { method: 'DELETE' })
+    router.push('/')
+  }
 
-<<<<<<< HEAD
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/events', label: 'Events' },
     { href: '/resources', label: 'Resources' },
     { href: '/quizzes', label: 'Quizzes' },
-  ];
-=======
-  const navItems =
-    currentUser && (currentUser.role === 'student' || currentUser.role === 'admin')
-      ? []
-      : [
-          { href: '/', label: 'Home' },
-          { href: '/events', label: 'Events' },
-          { href: '/resources', label: 'Resources' },
-        ];
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
+  ]
 
   return (
     <nav className="border-b bg-white dark:bg-black/80 backdrop-blur sticky top-0 z-50">
@@ -93,73 +78,83 @@ export function Navigation({ currentUser }: NavigationProps) {
               <Moon className={`w-5 h-5 ${theme === 'dark' ? 'text-blue-600' : 'text-gray-400'}`} />
             </div>
 
-<<<<<<< HEAD
             <div className="flex items-center space-x-4">
-              <Link href="/login">
-                <Button variant="ghost">Login</Button>
-              </Link>
-            </div>
-=======
-            {currentUser ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center space-x-2">
-                    <User className="w-4 h-4" />
-                    <span>{currentUser.role === 'admin' ? currentUser.name : (currentUser.name ? currentUser.name : (currentUser.name ? currentUser.name.split(' ').map(n => n[0]).join('').toUpperCase() : 'User'))}</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem asChild>
-                    <Link href={currentUser.role === 'admin' ? '/admin' : '/dashboard'}>Dashboard</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <div className="flex items-center space-x-4">
+              {currentUser ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="flex items-center space-x-2">
+                      <User className="w-4 h-4" />
+                      <span>{currentUser.name}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem>
+                      <Settings className="w-4 h-4 mr-2" />
+                      Settings
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleLogout}>
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
                 <Link href="/login">
                   <Button variant="ghost">Login</Button>
                 </Link>
-              </div>
-            )}
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
+              )}
+            </div>
           </div>
 
-          {/* Mobile Navigation */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <div className="flex flex-col space-y-4 mt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-lg font-medium hover:text-blue-600 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-<<<<<<< HEAD
-                <Link href="/login" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full">Login</Button>
-                </Link>
-=======
-                {!currentUser && (
-                  <>
-                    <Link href="/login" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full">Login</Button>
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="sm">
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-white transition-colors font-medium"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
                     </Link>
-                  </>
-                )}
->>>>>>> 768d7e3437f156c7a323f951ce4c1510fcaf47d8
-              </div>
-            </SheetContent>
-          </Sheet>
+                  ))}
+                  
+                  {/* Dark mode toggle for mobile */}
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-gray-700 dark:text-gray-200">Dark Mode</span>
+                    <Switch
+                      checked={theme === 'dark'}
+                      onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+                      aria-label="Toggle dark mode"
+                    />
+                  </div>
+
+                  {currentUser ? (
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-2 py-2">
+                        <User className="w-4 h-4" />
+                        <span className="text-gray-700 dark:text-gray-200">{currentUser.name}</span>
+                      </div>
+                      <Button variant="ghost" className="w-full justify-start" onClick={handleLogout}>
+                        Logout
+                      </Button>
+                    </div>
+                  ) : (
+                    <Link href="/login">
+                      <Button variant="ghost" className="w-full">Login</Button>
+                    </Link>
+                  )}
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </nav>
