@@ -1,0 +1,249 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "Next.js 14",
+    "MongoDB",
+    "Tailwind CSS",
+    "Shadcn/ui",
+    "JWT",
+    "Google AI",
+    "Lottie",
+    "Keen Slider",
+    "React Hooks",
+    "Node.js",
+    "bcrypt",
+    "Zod"
+  ],
+  "features": [
+    {
+      "name": "User Authentication System",
+      "description": "Complete user authentication with login, signup, JWT tokens, and role-based access control",
+      "files": [
+        "app/login/page.tsx",
+        "app/signup/page.tsx",
+        "app/api/auth/route.ts",
+        "app/api/users/me/route.ts",
+        "app/api/users/route.ts",
+        "lib/middleware.ts"
+      ]
+    },
+    {
+      "name": "Dashboard and Navigation",
+      "description": "Personalized dashboard with responsive navigation and mobile support",
+      "files": [
+        "app/dashboard/page.tsx",
+        "app/admin/page.tsx",
+        "app/components/Navigation.tsx",
+        "components/navigation.tsx",
+        "hooks/use-mobile.tsx"
+      ]
+    },
+    {
+      "name": "Event Management System",
+      "description": "Comprehensive event creation, management, registration, and sponsor showcase",
+      "files": [
+        "app/events/page.tsx",
+        "app/events/[id]/register/page.tsx",
+        "app/api/resources/route.ts"
+      ]
+    },
+    {
+      "name": "Quiz and Assessment System",
+      "description": "AI-powered quiz generation, interactive quiz taking, and results tracking",
+      "files": [
+        "app/quizzes/page.tsx",
+        "app/quizzes/[id]/take/page.tsx",
+        "app/api/quiz-generation/route.ts",
+        "app/api/quiz-results/route.ts"
+      ]
+    },
+    {
+      "name": "Resource Management",
+      "description": "File upload, organization, sharing, and management system",
+      "files": [
+        "app/resources/page.tsx",
+        "app/api/upload/route.ts",
+        "app/api/files/[id]/route.ts"
+      ]
+    },
+    {
+      "name": "AI-Powered Chatbot",
+      "description": "Intelligent chatbot with PDF analysis capabilities using Google AI",
+      "files": [
+        "app/components/Chatbot.tsx",
+        "app/api/chatbot/route.ts",
+        "app/api/chatbot-analyze-pdf/route.ts",
+        "lib/google-ai.ts"
+      ]
+    },
+    {
+      "name": "Forum and Community",
+      "description": "Community discussion platform with forums and user interactions",
+      "files": [
+        "app/forum/page.tsx",
+        "app/forum/loading.tsx"
+      ]
+    },
+    {
+      "name": "Flashcard System",
+      "description": "Educational flashcard generation and study tools",
+      "files": [
+        "app/api/flashcard-generation/route.ts"
+      ]
+    },
+    {
+      "name": "Newsletter System",
+      "description": "Newsletter subscription and management",
+      "files": [
+        "app/newsletter/page.tsx"
+      ]
+    },
+    {
+      "name": "Notification System",
+      "description": "User notification management and delivery",
+      "files": [
+        "app/api/notifications/route.ts"
+      ]
+    },
+    {
+      "name": "Settings Management",
+      "description": "User preferences and account settings",
+      "files": [
+        "app/api/settings/route.ts"
+      ]
+    },
+    {
+      "name": "UI Component Library",
+      "description": "Comprehensive UI component system using Shadcn/ui with 40+ components",
+      "files": [
+        "components/ui/accordion.tsx",
+        "components/ui/alert-dialog.tsx",
+        "components/ui/alert.tsx",
+        "components/ui/aspect-ratio.tsx",
+        "components/ui/avatar.tsx",
+        "components/ui/badge.tsx",
+        "components/ui/breadcrumb.tsx",
+        "components/ui/button.tsx",
+        "components/ui/calendar.tsx",
+        "components/ui/card.tsx",
+        "components/ui/carousel.tsx",
+        "components/ui/chart.tsx",
+        "components/ui/checkbox.tsx",
+        "components/ui/collapsible.tsx",
+        "components/ui/command.tsx",
+        "components/ui/context-menu.tsx",
+        "components/ui/dialog.tsx",
+        "components/ui/drawer.tsx",
+        "components/ui/dropdown-menu.tsx",
+        "components/ui/form.tsx",
+        "components/ui/hover-card.tsx",
+        "components/ui/input-otp.tsx",
+        "components/ui/input.tsx",
+        "components/ui/label.tsx",
+        "components/ui/menubar.tsx",
+        "components/ui/navigation-menu.tsx",
+        "components/ui/pagination.tsx",
+        "components/ui/popover.tsx",
+        "components/ui/progress.tsx",
+        "components/ui/radio-group.tsx",
+        "components/ui/resizable.tsx",
+        "components/ui/scroll-area.tsx",
+        "components/ui/select.tsx",
+        "components/ui/separator.tsx",
+        "components/ui/sheet.tsx",
+        "components/ui/sidebar.tsx",
+        "components/ui/skeleton.tsx",
+        "components/ui/slider.tsx",
+        "components/ui/sonner.tsx",
+        "components/ui/switch.tsx",
+        "components/ui/table.tsx",
+        "components/ui/tabs.tsx",
+        "components/ui/textarea.tsx",
+        "components/ui/toast.tsx",
+        "components/ui/toaster.tsx",
+        "components/ui/toggle-group.tsx",
+        "components/ui/toggle.tsx",
+        "components/ui/tooltip.tsx",
+        "components/ui/use-mobile.tsx",
+        "components/ui/use-toast.ts",
+        "components.json"
+      ]
+    },
+    {
+      "name": "Theme System",
+      "description": "Dark/light theme support with theme provider and global styles",
+      "files": [
+        "components/theme-provider.tsx",
+        "app/globals.css",
+        "styles/globals.css"
+      ]
+    },
+    {
+      "name": "Animation System",
+      "description": "Lottie animations and interactive elements",
+      "files": [
+        "components/LottieAnimation.tsx",
+        "public/lottie-business.json"
+      ]
+    },
+    {
+      "name": "Database Integration",
+      "description": "MongoDB connection and data management utilities",
+      "files": [
+        "lib/mongodb.ts"
+      ]
+    },
+    {
+      "name": "Utility Functions",
+      "description": "Common utility functions and helpers",
+      "files": [
+        "lib/utils.ts"
+      ]
+    },
+    {
+      "name": "Configuration Management",
+      "description": "Project configuration and setup files",
+      "files": [
+        "next.config.mjs",
+        "tailwind.config.ts",
+        "tsconfig.json",
+        "package.json",
+        "postcss.config.mjs"
+      ]
+    },
+    {
+      "name": "Static Assets",
+      "description": "Images, logos, sponsor assets, and public files",
+      "files": [
+        "public/cabssa-logo.png",
+        "public/kit-logo.png",
+        "public/placeholder-logo.png",
+        "public/placeholder-logo.svg",
+        "public/placeholder-user.jpg",
+        "public/placeholder.jpg",
+        "public/placeholder.svg",
+        "public/Sponsers/a heaven holiday.jpg",
+        "public/Sponsers/Angel-One-Logo.png",
+        "public/Sponsers/easysynopsis logo 1.png",
+        "public/Sponsers/edited 1.png",
+        "public/Sponsers/kadson final logo 1.jpg",
+        "public/Sponsers/kartik travels logo 1.jpg",
+        "public/Sponsers/Mahabhrat construction logo.png",
+        "public/Sponsers/menon-bearings-ltd--600 1.png",
+        "public/Sponsers/pioneer energy logo.jpg",
+        "public/Sponsers/Screenshot 2025-02-18 154332 2.jpg",
+        "public/Sponsers/Superhero-Logo.png",
+        "public/Sponsers/swayam logo 1.png"
+      ]
+    },
+    {
+      "name": "Page Components",
+      "description": "Main page components and layouts",
+      "files": [
+        "app/page.tsx",
+        "app/about/page.tsx",
+        "app/layout.tsx"
+      ]
+    }
+  ]
+} 
