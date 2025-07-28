@@ -67,7 +67,21 @@ export default function DashboardPage() {
   const [isAssigning, setIsAssigning] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
   const [notificationLoading, setNotificationLoading] = useState(false)
-  const [editForm, setEditForm] = useState<any>({})
+  const [editForm, setEditForm] = useState<{
+    title: string;
+    description: string;
+    subject: string;
+    difficulty: string;
+    questionCount: number;
+    timeLimit: number;
+  }>({
+    title: '',
+    description: '',
+    subject: '',
+    difficulty: 'medium',
+    questionCount: 10,
+    timeLimit: 30
+  })
   const [editLoading, setEditLoading] = useState(false)
   const [editError, setEditError] = useState<string | null>(null)
 
